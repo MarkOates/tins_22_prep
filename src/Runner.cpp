@@ -9,6 +9,7 @@
 #include <AllegroFlare/Screens/GameWonScreen.hpp>
 #include <AllegroFlare/Screens/Storyboard.hpp>
 #include <AllegroFlare/StoryboardFactory.hpp>
+#include <AllegroFlare/Prototypes/FixedRoom2D/Screen.hpp>
 #include <AllegroFlare/Color.hpp>
 
 
@@ -94,6 +95,8 @@ void Runner::run(std::string mode)
    AllegroFlare::BitmapBin &bitmap_bin = framework.get_bitmap_bin_ref();
    AllegroFlare::SampleBin &sample_bin = framework.get_sample_bin_ref();
    AllegroFlare::ModelBin &model_bin = framework.get_model_bin_ref();
+   AllegroFlare::EventEmitter &event_emitter = framework.get_event_emitter_ref();
+   AllegroFlare::AudioController &audio_controller = framework.get_audio_controller_ref();
 
    if (mode == "test")
    {
@@ -150,6 +153,15 @@ void Runner::run(std::string mode)
 
 
    // setup the gameplay screen
+   AllegroFlare::Prototypes::FixedRoom2D::Screen gameplay_screen(
+      &bitmap_bin,
+      &font_bin,
+      &event_emitter,
+      &audio_controller
+   );
+   //gameplay_screen.set_bitmap_bin(&bitmap_bin);
+   gameplay_screen.initialize();
+   framework.register_screen("gameplay_screen", &gameplay_screen);
    // TODO
 
 

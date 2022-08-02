@@ -90,6 +90,8 @@ functions:
       AllegroFlare::BitmapBin &bitmap_bin = framework.get_bitmap_bin_ref();
       AllegroFlare::SampleBin &sample_bin = framework.get_sample_bin_ref();
       AllegroFlare::ModelBin &model_bin = framework.get_model_bin_ref();
+      AllegroFlare::EventEmitter &event_emitter = framework.get_event_emitter_ref();
+      AllegroFlare::AudioController &audio_controller = framework.get_audio_controller_ref();
 
       if (mode == "test")
       {
@@ -146,6 +148,15 @@ functions:
 
 
       // setup the gameplay screen
+      AllegroFlare::Prototypes::FixedRoom2D::Screen gameplay_screen(
+         &bitmap_bin,
+         &font_bin,
+         &event_emitter,
+         &audio_controller
+      );
+      //gameplay_screen.set_bitmap_bin(&bitmap_bin);
+      gameplay_screen.initialize();
+      framework.register_screen("gameplay_screen", &gameplay_screen);
       // TODO
  
 
@@ -180,6 +191,7 @@ functions:
       - AllegroFlare::Screens::GameWonScreen
       - AllegroFlare::Screens::Storyboard
       - AllegroFlare::StoryboardFactory
+      - AllegroFlare::Prototypes::FixedRoom2D::Screen
       - AllegroFlare::Color
 
 
@@ -200,6 +212,8 @@ dependencies:
     headers: [ AllegroFlare/StoryboardFactory.hpp ]
   - symbol: AllegroFlare::Screens::GameWonScreen
     headers: [ AllegroFlare/Screens/GameWonScreen.hpp ]
+  - symbol: AllegroFlare::Prototypes::FixedRoom2D::Screen
+    headers: [ AllegroFlare/Prototypes/FixedRoom2D/Screen.hpp ]
   - symbol: AllegroFlare::EventEmitter*
     headers: [ AllegroFlare/EventEmitter.hpp ]
   - symbol: AllegroFlare::Color

@@ -20,6 +20,9 @@
   "AllegroFlare/Screens/GameWonScreen": [
     "Runner"
   ],
+  "AllegroFlare/Prototypes/FixedRoom2D/Screen": [
+    "Runner"
+  ],
   "AllegroFlare/EventEmitter": [
     "Runner"
   ],
