@@ -120,7 +120,8 @@ void Runner::run(std::string mode)
    title_screen.set_font_bin(&framework.get_font_bin_ref());
    title_screen.set_bitmap_bin(&framework.get_bitmap_bin_ref());
    title_screen.set_title_text("");
-   title_screen.set_title_bitmap_name("tins4-logo-01.png");
+   //title_screen.set_title_bitmap_name("tins4-logo-01.png");
+   title_screen.set_background_bitmap_name("logo-02.png");
    title_screen.set_event_emitter(&framework.get_event_emitter_ref());
    title_screen.set_font_name("Inter-Medium.ttf");
    title_screen.set_menu_font_size(-40);
