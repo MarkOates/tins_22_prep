@@ -87,7 +87,7 @@ void Runner::run(std::string mode)
 {
    // setup the framework
    AllegroFlare::Frameworks::Full framework;
-   //framework.disable_escape_key_will_shutdown();
+   framework.disable_escape_key_will_shutdown();
    framework.initialize();
 
    // setup the bin paths
@@ -128,10 +128,11 @@ void Runner::run(std::string mode)
    title_screen.set_event_emitter(&framework.get_event_emitter_ref());
    title_screen.set_font_name("Inter-Medium.ttf");
    title_screen.set_menu_font_size(-40);
-   title_screen.set_copyright_text("Copyright 2022 - Mark Oates");
-   title_screen.set_copyright_text_color(AllegroFlare::Color::LightSkyBlue);
+   title_screen.set_copyright_text("Copyright 2022 - Mark Oates\nCLUBCATT Games - Version 0.1");
+   title_screen.set_copyright_text_color(AllegroFlare::Color(AllegroFlare::Color::LightSkyBlue).to_al());
+   title_screen.set_copyright_font_size(-26);
    title_screen.set_menu_options({
-      { "Start", "start_gameplay_screen" },
+      { "Start New Game", "start_gameplay_screen" },
       { "Credits", "start_credits_screen" },
       { "Quit", "exit_game" },
    });
