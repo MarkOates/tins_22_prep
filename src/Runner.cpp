@@ -128,7 +128,7 @@ void Runner::run(std::string mode)
    title_screen.set_event_emitter(&framework.get_event_emitter_ref());
    title_screen.set_font_name("Inter-Medium.ttf");
    title_screen.set_menu_font_size(-40);
-   title_screen.set_copyright_text("Copyright 2022 - Mark Oates\nCLUBCATT Games - Version 0.1");
+   title_screen.set_copyright_text("Copyright 2022 - Mark Oates\nCLUBCATT Games - www.clubcatt.com\nversion 0.1");
    title_screen.set_copyright_text_color(AllegroFlare::Color(AllegroFlare::Color::LightSkyBlue).to_al());
    title_screen.set_copyright_font_size(-26);
    title_screen.set_menu_options({
