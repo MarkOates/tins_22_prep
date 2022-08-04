@@ -16,7 +16,7 @@
 
 
 Runner::Runner(AllegroFlare::Frameworks::Full* framework, AllegroFlare::EventEmitter* event_emitter)
-   : AllegroFlare::Screens::Base()
+   : AllegroFlare::Screens::Base("Runner")
    , framework(framework)
    , event_emitter(event_emitter)
 {
@@ -46,11 +46,14 @@ void Runner::game_event_func(AllegroFlare::GameEvent* ev)
 
    if (event_name == "initialize")
    {
-      event_emitter->emit_game_event(AllegroFlare::GameEvent("start_title_screen"));
+      event_emitter->emit_game_event(AllegroFlare::GameEvent("start_opening_logos_storyboard_screen"));
+   }
+   if (event_name == "start_opening_logos_storyboard_screen")
+   {
+      framework->activate_screen("opening_logos_storyboard_screen");
    }
    if (event_name == "start_title_screen")
    {
-      //event_emitter->emit_play_music_track_event("file_example_OOG_1MG.ogg");
       framework->activate_screen("title_screen");
       event_emitter->emit_play_music_track_event("file_example_OOG_1MG.ogg");
    }
@@ -107,12 +110,10 @@ void Runner::run(std::string mode)
       sample_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/samples");
       model_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/models");
    }
-   else
-   {
-      model_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/models");
-   }
 
 
+
+   // setup this instance of the runner screen
    Runner runner(&framework, &framework.get_event_emitter_ref());
    framework.register_screen("runner", &runner);
 
@@ -120,13 +121,25 @@ void Runner::run(std::string mode)
 
 
 
+   // Setup the opening logo storyboards
+   AllegroFlare::Screens::Storyboard *opening_logos_storyboard_screen =
+      storyboard_factory.create_images_storyboard_screen({
+         bitmap_bin["allegro5-logo-gray.png"],
+         bitmap_bin["allegro-flare-alt-logo-01.png"],
+         bitmap_bin["tinslogo06.gif"],
+      });
+   opening_logos_storyboard_screen->set_game_event_name_to_emit_after_completing("start_title_screen");
+   framework.register_screen("opening_logos_storyboard_screen", opening_logos_storyboard_screen);
+
+
+
+   // pre-load the audio controller
    audio_controller.set_and_load_sound_effect_elements({
      { "menu-click-01.wav", { "menu-click-01.wav", false } },
    });
    audio_controller.set_and_load_music_track_elements({
-     { "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
+     //{ "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
    });
-
 
 
 
