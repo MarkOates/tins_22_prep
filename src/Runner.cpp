@@ -100,14 +100,14 @@ void Runner::run(std::string mode)
 
    if (mode == "test")
    {
-      font_bin.set_full_path("/Users/markoates/Repos/Tins3/bin/programs/data/fonts");
-      bitmap_bin.set_full_path("/Users/markoates/Repos/Tins3/bin/programs/data/bitmaps");
-      sample_bin.set_full_path("/Users/markoates/Repos/Tins3/bin/programs/data/samples");
-      model_bin.set_full_path("/Users/markoates/Repos/Tins3/bin/programs/data/models");
+      font_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/fonts");
+      bitmap_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/bitmaps");
+      sample_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/samples");
+      model_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/models");
    }
    else
    {
-      model_bin.set_full_path("/Users/markoates/Repos/Tins3/bin/programs/data/models");
+      model_bin.set_full_path("/Users/markoates/Repos/tins_22_prep/bin/programs/data/models");
    }
 
 
