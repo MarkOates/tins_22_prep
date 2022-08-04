@@ -23,6 +23,9 @@
   "AllegroFlare/Prototypes/FixedRoom2D/Screen": [
     "Runner"
   ],
+  "AllegroFlare/Prototypes/FixedRoom2D/FixedRoom2D": [
+    "Runner"
+  ],
   "AllegroFlare/EventEmitter": [
     "Runner"
   ],

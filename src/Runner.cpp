@@ -186,10 +186,9 @@ void Runner::run(std::string mode)
       &event_emitter,
       &audio_controller
    );
-   //gameplay_screen.set_bitmap_bin(&bitmap_bin);
    gameplay_screen.initialize();
+   gameplay_screen.load_gametest_configuration_and_start();
    framework.register_screen("gameplay_screen", &gameplay_screen);
-   // TODO
 
 
 
