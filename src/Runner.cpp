@@ -118,6 +118,13 @@ void Runner::run(std::string mode)
 
 
 
+   audio_controller.set_and_load_sound_effect_elements({
+     { "menu-click-01.wav", { "menu-click-01.wav", false } },
+   });
+
+
+
+
    // setup the title screen
    AllegroFlare::Screens::TitleScreen title_screen;
    title_screen.set_font_bin(&framework.get_font_bin_ref());
