@@ -122,9 +122,10 @@ functions:
       // Setup the opening logo storyboards
       AllegroFlare::Screens::Storyboard *opening_logos_storyboard_screen =
          storyboard_factory.create_images_storyboard_screen({
-            bitmap_bin["allegro5-logo-gray.png"],
-            bitmap_bin["allegro-flare-alt-logo-01.png"],
+            bitmap_bin["allegro5-logo-gray-med.png"],
+            bitmap_bin["allegro-flare-alt-logo-01-med.png"],
             bitmap_bin["tinslogo06.gif"],
+            nullptr,
          });
       opening_logos_storyboard_screen->set_game_event_name_to_emit_after_completing("start_title_screen");
       framework.register_screen("opening_logos_storyboard_screen", opening_logos_storyboard_screen);
