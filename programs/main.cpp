@@ -1,9 +1,9 @@
 
-//#include <ProgramRunner.hpp>
+#include <Runner.hpp>
 #include <allegro5/allegro.h>
 
 int main(int argc, char **argv)
 {
-   //ProgramRunner().run();
+   Runner().run();
    return 0;
 }
