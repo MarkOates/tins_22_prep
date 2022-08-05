@@ -48,7 +48,9 @@ void Runner::game_event_func(AllegroFlare::GameEvent* ev)
 
    if (event_name == "initialize")
    {
-      event_emitter->emit_game_event(AllegroFlare::GameEvent("start_opening_logos_storyboard_screen"));
+      event_emitter->emit_game_event(AllegroFlare::GameEvent("start_gameplay_screen"));
+      // FOR FULL GAMEPLAY
+      //event_emitter->emit_game_event(AllegroFlare::GameEvent("start_opening_logos_storyboard_screen"));
    }
    if (event_name == "start_opening_logos_storyboard_screen")
    {

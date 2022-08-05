@@ -80,19 +80,19 @@ AllegroFlare::Prototypes::FixedRoom2D::Configuration First::build(AllegroFlare::
    };
 
    entity_dictionary = {
+      { "front_hall_bg", entity_factory.create_entity("room_0.png",
+            1920/2, 1080, 1.0, "Background", "observe_front_hall") },
+      { "main_hall_bg", entity_factory.create_entity("room_1.png",
+            1920/2, 1080, 1.0, "Background", "observe_main_hall") },
       { "door1", entity_factory.create_entity(
             "download-door-png-transparent-image-and-clipart-3.png", 1400, 800, 0.85, "Door 1", "observe_door1") },
       { "door2", entity_factory.create_entity(
             "download-door-png-transparent-image-and-clipart-3.png", 500, 800, 0.85, "Door 2", "observe_door2") },
-      { "chair", entity_factory.create_entity(
-            "wooden-chair-png-transparent-image-pngpix-0.png", 700, 800, 0.168, "Chair", "signal_hello") },
-      { "table", entity_factory.create_entity(
-            "download-wooden-table-png-image-png-image-pngimg-3.png", 900, 800, 0.4, "table", "observe_table") },
-      { "keys", entity_factory.create_entity(
-            "key-keychain-house-keys-door-photo-pixabay-25.png", 940, 590, 0.05, "keys", "collect_keys") },
    };
 
    entity_room_associations = {
+      { "front_hall_bg", "front_hall" },
+      { "main_hall_bg", "study" },
       { "door1", "front_hall" },
       { "door2", "study" },
       { "chair", "front_hall" },
@@ -101,6 +101,12 @@ AllegroFlare::Prototypes::FixedRoom2D::Configuration First::build(AllegroFlare::
    };
 
    script_dictionary = {
+      { "observe_front_hall", AllegroFlare::Prototypes::FixedRoom2D::Script({
+            "DIALOG: This is a pretty dark room. | It's kinda hard to see anything, to be honest."
+      })},
+      { "observe_main_hall", AllegroFlare::Prototypes::FixedRoom2D::Script({
+            "DIALOG: This is a pretty dark room. | It's kinda hard to see anything, to be honest."
+      })},
       { "observe_door1", AllegroFlare::Prototypes::FixedRoom2D::Script({
             "DIALOG: Just a regular door. | I'm going to step through it.",
             "ENTER_ROOM: study",
@@ -110,11 +116,8 @@ AllegroFlare::Prototypes::FixedRoom2D::Configuration First::build(AllegroFlare::
             "ENTER_ROOM: front_hall",
       })},
       { "signal_hello", AllegroFlare::Prototypes::FixedRoom2D::Script({
-            "SIGNAL: Hello!"})
+            "SIGNAL: Hello what's going on?"})
       },
-      { "spawn_dialog", AllegroFlare::Prototypes::FixedRoom2D::Script({
-            "DIALOG: This was a scripted dialog!"
-      })},
       { "collect_keys", AllegroFlare::Prototypes::FixedRoom2D::Script({
             "COLLECT: keys"
       })},
