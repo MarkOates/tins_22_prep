@@ -10,6 +10,8 @@
 #include <AllegroFlare/Screens/Storyboard.hpp>
 #include <AllegroFlare/StoryboardFactory.hpp>
 #include <AllegroFlare/Prototypes/FixedRoom2D/Screen.hpp>
+#include <AllegroFlare/Prototypes/FixedRoom2D/Configuration.hpp>
+#include <GameConfigurations/First.hpp>
 #include <AllegroFlare/Color.hpp>
 
 
@@ -67,7 +69,10 @@ void Runner::game_event_func(AllegroFlare::GameEvent* ev)
    }
    //if (event_name == "start_new_game")
    //{
-      //framework->activate_screen("opening_storyboard_screen");
+      //AllegroFlare::Prototypes::FixedRoom2D::Configuration configuration = GameConfigurations::First::build();
+      //gameplay_screen.load_game_configuration_and_start(configuration);
+      //framework->activate_screen("opening_storyboard_screen"); // <-- probably will want to add this
+      //framework->activate_screen("gameplay_screen");
    //}
    if (event_name == "finished_credits_screen")
    {
@@ -138,7 +143,7 @@ void Runner::run(std::string mode)
      { "menu-click-01.wav", { "menu-click-01.wav", false } },
    });
    audio_controller.set_and_load_music_track_elements({
-     //{ "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
+     { "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
    });
 
 
@@ -187,7 +192,13 @@ void Runner::run(std::string mode)
       &audio_controller
    );
    gameplay_screen.initialize();
-   gameplay_screen.load_gametest_configuration_and_start();
+   AllegroFlare::Prototypes::FixedRoom2D::Configuration configuration = GameConfigurations::First::build(
+     &bitmap_bin,
+     &font_bin,
+     &event_emitter,
+     &gameplay_screen.get_fixed_room_2d_ref().get_entity_collection_helper_ref()
+   );
+   gameplay_screen.load_game_configuration_and_start(configuration);
    framework.register_screen("gameplay_screen", &gameplay_screen);
 
 

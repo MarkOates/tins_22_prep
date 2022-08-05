@@ -57,7 +57,10 @@ functions:
       }
       //if (event_name == "start_new_game")
       //{
-         //framework->activate_screen("opening_storyboard_screen");
+         //AllegroFlare::Prototypes::FixedRoom2D::Configuration configuration = GameConfigurations::First::build();
+         //gameplay_screen.load_game_configuration_and_start(configuration);
+         //framework->activate_screen("opening_storyboard_screen"); // <-- probably will want to add this
+         //framework->activate_screen("gameplay_screen");
       //}
       if (event_name == "finished_credits_screen")
       {
@@ -133,7 +136,7 @@ functions:
         { "menu-click-01.wav", { "menu-click-01.wav", false } },
       });
       audio_controller.set_and_load_music_track_elements({
-        //{ "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
+        { "file_example_OOG_1MG.ogg", { "file_example_OOG_1MG.ogg", true } },
       });
 
 
@@ -182,7 +185,13 @@ functions:
          &audio_controller
       );
       gameplay_screen.initialize();
-      gameplay_screen.load_gametest_configuration_and_start();
+      AllegroFlare::Prototypes::FixedRoom2D::Configuration configuration = GameConfigurations::First::build(
+        &bitmap_bin,
+        &font_bin,
+        &event_emitter,
+        &gameplay_screen.get_fixed_room_2d_ref().get_entity_collection_helper_ref()
+      );
+      gameplay_screen.load_game_configuration_and_start(configuration);
       framework.register_screen("gameplay_screen", &gameplay_screen);
  
 
@@ -218,6 +227,8 @@ functions:
       - AllegroFlare::Screens::Storyboard
       - AllegroFlare::StoryboardFactory
       - AllegroFlare::Prototypes::FixedRoom2D::Screen
+      - AllegroFlare::Prototypes::FixedRoom2D::Configuration
+      - GameConfigurations::First
       - AllegroFlare::Color
 
 
@@ -248,5 +259,9 @@ dependencies:
     headers: [ AllegroFlare/Color.hpp ]
   - symbol: AllegroFlare::GameEvent*
     headers: [ AllegroFlare/GameEvent.hpp ]
+  - symbol: GameConfigurations::First
+    headers: [ GameConfigurations/First.hpp ]
+  - symbol: AllegroFlare::Prototypes::FixedRoom2D::Configuration
+    headers: [ AllegroFlare/Prototypes/FixedRoom2D/Configuration.hpp ]
 
 

@@ -13,7 +13,7 @@ TEST(RunnerTest, can_be_created_without_blowing_up)
 TEST(RunnerTest, run__runs_the_program)
 {
    Runner runner;
-   //runner.run("test");
+   runner.run("test");
    SUCCEED();
 }
 

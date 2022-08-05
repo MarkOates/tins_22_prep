@@ -1,4 +1,45 @@
 {
+  "AllegroFlare/Inventory": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/InventoryIndex": [
+    "GameConfigurations/First"
+  ],
+  "std/map<std/string, AllegroFlare/Prototypes/FixedRoom2D/Entities/Base>": [
+    "GameConfigurations/First"
+  ],
+  "std/map<std/string, AllegroFlare/Prototypes/FixedRoom2D/Room>": [
+    "GameConfigurations/First"
+  ],
+  "std/map<std/string, AllegroFlare/Prototypes/FixedRoom2D/Script>": [
+    "GameConfigurations/First"
+  ],
+  "std/map<std/string, std/string>": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/Prototypes/FixedRoom2D/EntityFactory": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/Prototypes/FixedRoom2D/RoomFactory": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/BitmapBin": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/EventEmitter": [
+    "GameConfigurations/First",
+    "Runner"
+  ],
+  "AllegroFlare/FontBin": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/Prototypes/FixedRoom2D/EntityCollectionHelper": [
+    "GameConfigurations/First"
+  ],
+  "AllegroFlare/Prototypes/FixedRoom2D/Configuration": [
+    "GameConfigurations/First",
+    "Runner"
+  ],
   "AllegroFlare/Screens/Base": [
     "Runner"
   ],
@@ -26,13 +67,13 @@
   "AllegroFlare/Prototypes/FixedRoom2D/FixedRoom2D": [
     "Runner"
   ],
-  "AllegroFlare/EventEmitter": [
-    "Runner"
-  ],
   "AllegroFlare/Color": [
     "Runner"
   ],
   "AllegroFlare/GameEvent": [
+    "Runner"
+  ],
+  "GameConfigurations/First": [
     "Runner"
   ]
 }
